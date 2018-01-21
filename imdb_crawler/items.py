@@ -48,6 +48,8 @@ class MovieItem(scrapy.Item):
     # 时长
     # //*[@id="titleDetails"]/div/h4[text()="Runtime:"]/following-sibling::time/text()
     runtime = scrapy.Field()
+    max_runtime = scrapy.Field()
+    min_runtime = scrapy.Field()
     # 音效
     # //*[@id="titleDetails"]/div/h4[text()="Sound Mix:"]/following-sibling::a/text()
     sound_mix = scrapy.Field()
