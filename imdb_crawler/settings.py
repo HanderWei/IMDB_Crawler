@@ -62,11 +62,16 @@ ROBOTSTXT_OBEY = True
 #    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
 
+MONGODB_HOST = 'localhost'
+MONGODB_PORT = 27017
+MONGODB_DBNAME = 'imdb'
+MONGODB_TABLE = 'top250'
+
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'imdb_crawler.pipelines.ImdbCrawlerPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'imdb_crawler.pipelines.IMDBPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
