@@ -6,6 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import pymongo
 from scrapy.conf import settings
+from imdb_crawler.items import MovieItem
 
 
 class IMDBPipeline(object):
@@ -25,6 +26,7 @@ class IMDBPipeline(object):
     # 处理item
     def process_item(self, item, spider):
         # 使用dict转换item，然后插入数据库
-        quote_info = dict(item)
-        self.table.insert(quote_info)
+        if item is MovieItem:
+            movie = dict(item)
+            self.table.insert(movie)
         return item
